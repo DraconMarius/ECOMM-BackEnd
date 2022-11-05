@@ -4,7 +4,7 @@
 ***
 A simple express server API that has the basic CRUD Routes for `Category`, `Product`, and `Tag`. Feel free to click below for a demo of the api that includes the set up of the database in mysql, and testing the routes to interact and retrieve with data within.
 
-[Demo Video Link](https://drive.google.com/file/d/1kz-yhW_2QoKaDa76LzY5Hex6a_Eef7A3/view)
+[Demo Video Link](https://drive.google.com/file/d/10RLTokV4gq741e2DIBr35FQamOFRNuwP/view)
 
 ***
 - [X] Connecting to mysql using an `.env` file
@@ -16,6 +16,8 @@ A simple express server API that has the basic CRUD Routes for `Category`, `Prod
 
 ***
 ## Installation & Usage
+**Ensure you input your mysql password in the included `.env` file!**
+
 To install and run this application, please clone / download this repository to your local machine, and **make sure you have `node.js`, `dotenv`, `mysql2`,`express`, and `sequelize` installed!**
 
 The `package.json` is included in the repo, and you can run the following:
@@ -26,6 +28,26 @@ npm i
 
 within the repo's root directory to download all of the required depensies. 
 
+### Creating DataBase
+To create the databse that we will be utilizing, please log into your mysql shell to run the following: 
+
+``` sql
+mysql -u root -p
+>input your password
+
+SOURCE ./db/schema.sql;
+exit
+```
+
+### Seeding DataBase
+To seed our database with the starter data:
+
+``` bash
+node ./seeds
+```
+
+---
+
 Then you will be ready to start you application by running the following:
 
 ``` bash
@@ -35,13 +57,17 @@ npm start //or// node server.js
 ***
 ## Demo Links / Media
 *(feel free to click on the gif to go to a **video demo** in Google Drive!)*
-[<img src="./assets/demo.gif" alt='click2go2vid'>](https://drive.google.com/file/d/1SkrviuPiX8yZe3uZ8xRQ04ugSLAxy4Qe/view/) 
+[<img src="./assets/demo.gif" alt='click2go2vid'>](https://drive.google.com/file/d/10RLTokV4gq741e2DIBr35FQamOFRNuwP/view) 
 
 ## Technologies Used
 > JavaScript
+
 > node.js
+
 > express.js
+
 > mysql
+
 > sequelize
 
 ## License
