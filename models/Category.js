@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
+const Product = require('./Product.js');
 
 class Category extends Model { }
 
@@ -18,7 +19,16 @@ Category.init(
       allowNull: false
     }
   },
-  {
+  {//adding hook cuz cascading delete on category not working
+    // hooks: {
+    //   beforeDestroy: async (id) => {
+    //     await Product.destroy({
+    //       where: {
+    //         category_id: CatID
+    //       }
+    //     })
+    //   },
+    // },
     sequelize,
     timestamps: false,
     freezeTableName: true,
