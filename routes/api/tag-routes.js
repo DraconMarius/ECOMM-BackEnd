@@ -31,14 +31,51 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   // create a new tag
+  try {
+    const newTag = await Tag.create(req.body);
+    res.status(200).json(`${newTag.tag_name} has been created`)
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.put('/:id', async (req, res) => {
-  // update a tag's name by its `id` value
+  // update a tag by its `id` value
+  try {
+    const id = req.params.id;
+    const newName = req.body.tag_name;
+    const updTag = await Tag.update(
+      {
+        tag_name: newName
+      },
+      {
+        where: {
+          id: id
+        }
+      }
+    );
+    res.status(200).json(`ID: ${id}'s name changed to ${newName}`)
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.delete('/:id', async (req, res) => {
-  // delete on tag by its `id` value
+  // delete a tag by its `id` value
+  try {
+    const id = req.params.id;
+    const newName = req.body.category_name;
+    const updTag = await Tag.destroy(
+      {
+        where: {
+          id: id
+        }
+      }
+    );
+    res.status(200).json(`ID: ${id} has been deleted`)
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
